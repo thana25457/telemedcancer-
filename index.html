@@ -43,10 +43,10 @@
     // แก้ไขโดยเอาปีกกาออก
     const callUrl = "https://line.me/R/oaMessage/@713bfmgf/?call";
     
-    liff.openWindow({
-        url: callUrl,
-        external: false 
-    });
+   liff.openWindow({
+    url: "https://line.me/R/oaMessage/@713bfmgf/?call",
+    external: true  // ให้มันเด้งออกไปจัดการที่แอป LINE หลัก
+});
 };
 
         main();
