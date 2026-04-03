@@ -39,18 +39,15 @@
             }
         }
 
-        document.getElementById('btnCall').onclick = function() {
-            // 4. ใช้ URL Scheme เพื่อสั่งโทร
-            // โครงสร้าง: https://line.me/R/oaMessage/{@713bfmgf}/?call
-            // แทนที่ @princsk ด้วย ID จริงของคุณหมอ
-            const callUrl = "https://line.me/R/oaMessage/@713bfmgf/?call";
-            
-            // เปิดหน้าโทรผ่าน LIFF Window
-            liff.openWindow({
-                url: callUrl,
-                external: false // เปิดทับหน้าแชทเดิมได้เลย
-            });
-        };
+       document.getElementById('btnCall').onclick = function() {
+    // แก้ไขโดยเอาปีกกาออก
+    const callUrl = "https://line.me/R/oaMessage/@713bfmgf/?call";
+    
+    liff.openWindow({
+        url: callUrl,
+        external: false 
+    });
+};
 
         main();
     </script>
