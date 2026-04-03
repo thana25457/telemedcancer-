@@ -28,7 +28,7 @@
     <script>
         async function main() {
             // 3. เริ่มต้นระบบ LIFF (ใส่ ID ที่ได้จาก LINE Developers)
-            await liff.init({ liffId: "YOUR_LIFF_ID_HERE" });
+            await liff.init({ liffId: "2009689753-gj9Ax9Ms" });
 
             if (liff.isLoggedIn()) {
                 document.getElementById('btnCall').style.display = 'block';
@@ -41,9 +41,9 @@
 
         document.getElementById('btnCall').onclick = function() {
             // 4. ใช้ URL Scheme เพื่อสั่งโทร
-            // โครงสร้าง: https://line.me/R/oaMessage/{ID_LINE_OA}/?call
+            // โครงสร้าง: https://line.me/R/oaMessage/{@713bfmgf}/?call
             // แทนที่ @princsk ด้วย ID จริงของคุณหมอ
-            const callUrl = "https://line.me/R/oaMessage/@princsk/?call";
+            const callUrl = "https://line.me/R/oaMessage/@713bfmgf/?call";
             
             // เปิดหน้าโทรผ่าน LIFF Window
             liff.openWindow({
