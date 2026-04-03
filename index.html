@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ปรึกษาโรคมะเร็ง ฟรี - โรงพยาบาลพริ้นซ์ศรีสะเกษ</title>
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; background: #f0f7ff; }
+        .btn-call {
+            background-color: #06c755; color: white; border: none;
+            padding: 20px 40px; font-size: 24px; border-radius: 50px;
+            cursor: pointer; box-shadow: 0 4px 15px rgba(6,199,85,0.3);
+            text-decoration: none; display: inline-block;
+        }
+        .status { margin-top: 20px; color: #666; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <h2>ยินดีให้คำปรึกษาครับ</h2>
+    <p>กดปุ่มด้านล่างเพื่อเริ่มวิดีโอคอลกับหมอธนา</p>
+    
+    <button id="btnCall" class="btn-call" style="display:none;">📞 เริ่มวิดีโอคอล</button>
+    
+    <div id="status" class="status">กำลังโหลดระบบ...</div>
+
+    <script>
+        async function main() {
+            // 3. เริ่มต้นระบบ LIFF (ใส่ ID ที่ได้จาก LINE Developers)
+            await liff.init({ liffId: "YOUR_LIFF_ID_HERE" });
+
+            if (liff.isLoggedIn()) {
+                document.getElementById('btnCall').style.display = 'block';
+                document.getElementById('status').innerText = 'ระบบพร้อมใช้งาน';
+            } else {
+                // ถ้ายังไม่ล็อกอิน ให้สั่ง Login ก่อน
+                liff.login();
+            }
+        }
+
+        document.getElementById('btnCall').onclick = function() {
+            // 4. ใช้ URL Scheme เพื่อสั่งโทร
+            // โครงสร้าง: https://line.me/R/oaMessage/{ID_LINE_OA}/?call
+            // แทนที่ @princsk ด้วย ID จริงของคุณหมอ
+            const callUrl = "https://line.me/R/oaMessage/@princsk/?call";
+            
+            // เปิดหน้าโทรผ่าน LIFF Window
+            liff.openWindow({
+                url: callUrl,
+                external: false // เปิดทับหน้าแชทเดิมได้เลย
+            });
+        };
+
+        main();
+    </script>
+</body>
+</html>
